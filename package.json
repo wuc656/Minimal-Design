@@ -10,9 +10,7 @@
       "access_activity"
     ],
     "buildTargets": [
-      "meson",
-      "gemini",
-      "mira"
+      "atlas"
     ],
     "i18n": {
       "en": {
@@ -50,5 +48,8 @@
       }
     },
     "defaultLanguage": "en-US"
+  },
+  "scripts": {
+    "build": "fitbit-build"
   }
 }
