@@ -1,8 +1,8 @@
 {
   "fitbit": {
-    "appUUID": "0f2f12b5-482e-4882-a733-d6687a0f1413",
+    "appUUID": "c821aa5f-68c0-4ea5-ae33-bcbbe2cc3fd6",
     "appType": "clockface",
-    "appDisplayName": "Minimal Design",
+    "appDisplayName": "Minimal Design dong",
     "iconFile": "resources/icon.png",
     "wipeColor": "",
     "requestedPermissions": [
@@ -10,46 +10,21 @@
       "access_activity"
     ],
     "buildTargets": [
-      "atlas"
+      "atlas",
+      "hera"
     ],
     "i18n": {
-      "en": {
-        "name": "Minimal Design"
-      },
-      "it": {
-        "name": "Minimal Design"
-      },
-      "es": {
-        "name": "Minimal Design"
-      },
-      "de": {
-        "name": "Minimal Design"
-      },
-      "fr": {
-        "name": "Minimal Design"
-      },
-      "ja": {
-        "name": "Minimal Design"
-      },
-      "nl": {
-        "name": "Minimal Design"
-      },
-      "ko": {
-        "name": "Minimal Design"
-      },
-      "sv": {
-        "name": "Minimal Design"
-      },
-      "zh-cn": {
-        "name": "Minimal Design"
-      },
       "zh-tw": {
-        "name": "Minimal Design"
+        "name": "Minimal Design dong"
       }
     },
-    "defaultLanguage": "en-US"
+    "defaultLanguage": "zh-TW"
   },
   "scripts": {
     "build": "fitbit-build"
+  },
+  "dependencies": {
+    "@fitbit/sdk": "^6.2.0-pre.1",
+    "@fitbit/sdk-cli": "^1.7.3"
   }
 }

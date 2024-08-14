@@ -1,6 +1,6 @@
 import document from "document";
 import { battery } from "power";
-import FileStore from "./fileStore";
+//import FileStore from "./fileStore";
 
 export default class Battery {
   static instance = new Battery();

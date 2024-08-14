@@ -1,5 +1,1 @@
-*.psd
-package-lock.json
-/datefeather
 /node_modules
-/build

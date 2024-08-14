@@ -6,7 +6,7 @@ import { KEY_COLOR,
          KEY_DATE_FORMAT } from "../../common/constants";
 import FileStore from './fileStore';
 import UI from "./ui";
-import Battery from './battery';
+//import Battery from './battery';
 import Clock from './clock';
 
 export default class Messaging {
