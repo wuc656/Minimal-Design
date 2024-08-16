@@ -6,7 +6,7 @@ const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "
   _getMinWeekday = e => WEEKDAYS[e.getDay()], _getShortWeekday = e => _getMinWeekday(e) + "S",
   _getFullWeekday = e => _getMinWeekday(e) + "F",
   _getMinHours = e => e.getHours() <= 12 ? e.getHours() : e.getHours() - 12,
-   _getAMPM = e => e.getHours() <= 12 ? "AM" : "PM"; var _getTimezone = (date, withSeparator) => {
+  _getAMPM = e => e.getHours() <= 12 ? "AM" : "PM"; var _getTimezone = (date, withSeparator) => {
     var timezone = date.getTimezoneOffset();
     var sign = timezone < 0 ? "-" : "+";
     var separator = withSeparator ? ":" : "";
@@ -41,13 +41,12 @@ export const datefeather = (e, t) => {
   };
   return t.replace(REGEX_FORMAT, (e, o) => o || g[e] || t.replace(":", ""))
 };
-
 // Add zero in front of numbers < 10
-const _repeat = (s, n) => {
+const _repeat = (n) => {
   var str = "";
-  for (var i = 0; i < n; i++) str += s;
+  for (var i = 0; i < n; i++) str += "0";
   return str;
 };
-export const zeroPad = (n, zeros) => n < 10 ? _repeat("0", zeros || 1) + n : n.toString();
-export const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+export const zeroPad = (n, zeros) => n < 10 ? _repeat(zeros || 1) + n : n.toString();
+//export const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 export const format = (date, format) => datefeather(date, format);

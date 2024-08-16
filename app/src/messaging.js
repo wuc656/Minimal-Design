@@ -1,9 +1,11 @@
 import * as messaging from "messaging";
-import { KEY_COLOR,
-         KEY_DISPLAY_ELEMENT_FLAG,
-         KEY_DISPLAY_ELEMENT,
-         KEY_WEEKDAY_FORMAT,
-         KEY_DATE_FORMAT } from "../../common/constants";
+import {
+  KEY_COLOR,
+  KEY_DISPLAY_ELEMENT_FLAG,
+  KEY_DISPLAY_ELEMENT,
+  KEY_WEEKDAY_FORMAT,
+  KEY_DATE_FORMAT
+} from "../../common/constants";
 import FileStore from './fileStore';
 import UI from "./ui";
 //import Battery from './battery';
@@ -17,22 +19,22 @@ export default class Messaging {
 
     // Message socket opens
     messaging.peerSocket.onopen = () => {
-      console.log("App Socket Open");
+      //console.log("App Socket Open");
     };
 
     // Message socket closes
     messaging.peerSocket.onclose = () => {
-      console.log("App Socket Closed");
+      //console.log("App Socket Closed");
     };
 
     messaging.peerSocket.onmessage = evt => {
       if (!evt.data.newValue) return;
-      
+
       let data = evt.data.newValue;
       try {
         data = JSON.parse(evt.data.newValue);
         data = data.name ? data.name : data;
-      } catch (e) {}
+      } catch (e) { }
 
       fileStore.setValue(evt.data.key, data);
 
@@ -44,11 +46,11 @@ export default class Messaging {
         case KEY_DISPLAY_ELEMENT_FLAG: {
           ui.setState(KEY_DISPLAY_ELEMENT_FLAG, data, true);
           break;
-        } 
+        }
         case KEY_DISPLAY_ELEMENT: {
           ui.setState(KEY_DISPLAY_ELEMENT, data, true);
           break;
-        } 
+        }
         case KEY_WEEKDAY_FORMAT:
         case KEY_DATE_FORMAT: {
           clock.refresh(new Date(), fileStore);

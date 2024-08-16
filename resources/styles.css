@@ -1,7 +1,6 @@
 .background {
   viewport-fill: black;
 }
-
 .light {
   font-family: Colfax-Regular;
 }
@@ -11,33 +10,28 @@
 .colored {
   fill: #24FEC9;
 }
-
 text {
   text-length: 32;  
 }
-
 #hours {
   font-size: 120;
   text-anchor: end;
-  x: 55%;/*37%-30;*/
+  x: 55%;
   y: 30%+80;
   fill: white;
 }
-
 #minutes {
   font-size: 90;
   text-anchor: start;
   x: 55%+5;/*67%+15;*/
   y: 30%+80;
 }
-
 #weekday {
   font-size: 27;
   text-anchor: middle;
   x: 50%;
   y: 50%+65;
 }
-
 #date {
   font-size: 25;
   text-anchor: middle;
@@ -45,7 +39,6 @@ text {
   y: 90%+15;
   fill: black;
 }
-
 .top-element-text {
   font-size: 25;
   text-anchor: end;
@@ -53,7 +46,6 @@ text {
   y: 10%;
   fill: white;
 }
-
 .top-element-icon {
   opacity: 1;
   width: 15;
