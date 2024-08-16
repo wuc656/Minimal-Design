@@ -1,7 +1,6 @@
 import document from "document";
 import { battery } from "power";
 //import FileStore from "./fileStore";
-
 export default class Battery {
   static instance = new Battery();
 
@@ -11,8 +10,9 @@ export default class Battery {
   }
 
   refresh() {
-    let batteryChargeLevel = Math.floor(battery.chargeLevel);
-    this.txtBattery.text = batteryChargeLevel;
+    //let batteryChargeLevel = Math.floor(battery.chargeLevel);
+    //this.txtBattery.text = batteryChargeLevel;
+    this.txtBattery.text = battery.chargeLevel;
   }
 
   hideIcon() {
@@ -30,12 +30,12 @@ export default class Battery {
   showText() {
     this.txtBattery.style.display = "inline";
   }
-  
+
   hide() {
     this.hideIcon();
     this.hideText();
   }
-  
+
   show() {
     this.showIcon();
     this.showText();
@@ -43,11 +43,11 @@ export default class Battery {
 
   static run() {
     let batteryHandler = Battery.instance;
-    
+
     batteryHandler.show();
     batteryHandler.refresh();
-    
-    battery.onchange = function() {
+
+    battery.onchange = function () {
       batteryHandler.refresh();
     }
   }

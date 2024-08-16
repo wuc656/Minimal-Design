@@ -8,7 +8,7 @@ msgid "displayelementflaglabel"
 msgstr "在頂部顯示元素"
 
 msgid "displayelementlabel"
-msgstr "顶部元素"
+msgstr "頂部元素"
 
 msgid "heartrate"
 msgstr "心率"

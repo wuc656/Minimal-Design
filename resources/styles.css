@@ -23,7 +23,7 @@ text {
 #minutes {
   font-size: 90;
   text-anchor: start;
-  x: 55%+5;/*67%+15;*/
+  x: 55%+5;
   y: 30%+80;
 }
 #weekday {
@@ -51,6 +51,13 @@ text {
   width: 15;
   height: 20;
   x: 50%+12;
+  y: 10%-18;
+}
+.top-element-icon1 {
+  opacity: 1;
+  width: 15;
+  height: 20;
+  x: 50%+28;
   y: 10%-18;
 }
 #heartrate-icon {

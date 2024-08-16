@@ -1,6 +1,7 @@
 <svg class="background">
   <text id="battery" class="top-element-text light" />
   <image id="battery-icon" href="./resources/assets/bolt.png" class="top-element-icon colored" />
+  <image id="charger-icon" href="./resources/assets/bolt.png" class="top-element-icon1 colored" />
   <text id="heartrate" class="top-element-text light" />
   <image id="heartrate-icon" href="./resources/assets/heart.png" class="top-element-icon colored" />
   <text id="hours" class="bold" />

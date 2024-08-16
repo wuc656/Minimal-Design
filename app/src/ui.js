@@ -8,6 +8,7 @@ import {
 } from '../../common/constants';
 import HeartRate from './heartrate';
 import Battery from './battery';
+import Charger from './charger';
 import FileStore from './fileStore';
 
 export default class UI {
@@ -28,40 +29,43 @@ export default class UI {
     const color = this.fileStore.getValue(KEY_COLOR);
     this.updateColor(color);
     this.setState(KEY_DISPLAY_ELEMENT, this.fileStore.getValue(KEY_DISPLAY_ELEMENT) || DISPLAY_ELEMENT_BATTERY);
-    this.setState(KEY_DISPLAY_ELEMENT_FLAG, this.fileStore.getValue(KEY_DISPLAY_ELEMENT_FLAG) || true);    
+    this.setState(KEY_DISPLAY_ELEMENT_FLAG, this.fileStore.getValue(KEY_DISPLAY_ELEMENT_FLAG) || true);
   }
 
-  setState(key, data, save) {    
-    if (key==KEY_DISPLAY_ELEMENT_FLAG) {
+  setState(key, data, save) {
+    if (key == KEY_DISPLAY_ELEMENT_FLAG) {
       if (save) {
         this.fileStore.setValue(KEY_DISPLAY_ELEMENT_FLAG, data);
       }
-      if (data==false) {
+      if (data == false) {
         Battery.instance.hide();
+        Charger.instance.hide();
         HeartRate.instance.stop();
       } else {
         this.setState(KEY_DISPLAY_ELEMENT, this.fileStore.getValue(KEY_DISPLAY_ELEMENT) || DISPLAY_ELEMENT_BATTERY);
       }
     } else {
-       try {
-          data = data.values[0].value;
-        } catch (e) {}
+      try {
+        data = data.values[0].value;
+      } catch (e) { }
 
-        if (save) {
-          this.fileStore.setValue(KEY_DISPLAY_ELEMENT, {"values":[{"value":data}]});
+      if (save) {
+        this.fileStore.setValue(KEY_DISPLAY_ELEMENT, { "values": [{ "value": data }] });
+      }
+      if (this.fileStore.getValue(KEY_DISPLAY_ELEMENT_FLAG) == true) {
+        switch (data) {
+          case DISPLAY_ELEMENT_HEART:
+            Battery.instance.hide();
+            HeartRate.instance.start();
+            Charger.run();
+            break;
+          default:
+            HeartRate.instance.stop();
+            Battery.run();
+            Charger.run();
+            break;
         }
-        if (this.fileStore.getValue(KEY_DISPLAY_ELEMENT_FLAG)==true) {
-          switch (data) {
-            case DISPLAY_ELEMENT_HEART:
-              HeartRate.instance.start();
-              Battery.instance.hide();
-              break;
-            default:
-              Battery.run();
-              HeartRate.instance.stop();
-              break;
-          }
-        } 
+      }
     }
   }
 }
