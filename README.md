@@ -1,4 +1,4 @@
-# Minimal Design
+# Minimal Design v2
 
 [![Fitbit gallery](https://img.shields.io/badge/Fitbit%20gallery-%2300B0B9?style=flat-square&logo=fitbit&logoColor=white)](https://gallery.fitbit.com/details/c821aa5f-68c0-4ea5-ae33-bcbbe2cc3fd6)
 ![Release version](https://img.shields.io/github/v/release/wuc656/Minimal-Design?style=flat-square)
