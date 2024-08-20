@@ -1,8 +1,9 @@
 {
   "fitbit": {
-    "appUUID": "8df1686c-5281-48a8-97b3-020fc9f8f50e",
+    "//appUUID": "8df1686c-5281-48a8-97b3-020fc9f8f50e",
+    "appUUID": "c821aa5f-68c0-4ea5-ae33-bcbbe2cc3fd6",
     "appType": "clockface",
-    "appDisplayName": "Minimal Design dong",
+    "appDisplayName": "Minimal Design v2",
     "iconFile": "resources/icon.png",
     "wipeColor": "",
     "requestedPermissions": [
@@ -15,7 +16,7 @@
     ],
     "i18n": {
       "zh-tw": {
-        "name": "Minimal Design dong"
+        "name": "Minimal Design v2"
       }
     },
     "defaultLanguage": "zh-TW"
