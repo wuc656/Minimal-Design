@@ -1,27 +1,22 @@
 # Minimal Design
-[![Fitbit gallery](https://img.shields.io/badge/Fitbit%20gallery-%2300B0B9?style=flat-square&logo=fitbit&logoColor=white)](https://gallery.fitbit.com/details/0f2f12b5-482e-4882-a733-d6687a0f1413)
-![Release version](https://img.shields.io/github/v/release/Samurai016/Minimal-Design?style=flat-square)
 
-**Available only for Fitbit Versa, Versa Lite, Versa 2**
+[![Fitbit gallery](https://img.shields.io/badge/Fitbit%20gallery-%2300B0B9?style=flat-square&logo=fitbit&logoColor=white)](https://gallery.fitbit.com/details/c821aa5f-68c0-4ea5-ae33-bcbbe2cc3fd6)
+![Release version](https://img.shields.io/github/v/release/wuc656/Minimal-Design?style=flat-square)
+
+**Available only for Fitbit Sense 2,Versa3, Versa 4**
 
 Minimal clock with support for:
+
 - 24/12h formats
 - Custom date formats
 - All languages supported
 - 3 different color configurations
 - Battery percentage (optional)
 - Heart rate (optional)
+- 充電狀態顯示(開發中)
 
 ## Translated documentation
-- [:de: German](./docs/de/README.md)
-- [:es: Spanish](./docs/es/README.md)
-- [:fr: French](./docs/fr/README.md)
-- [:it: Italian](./docs/it/README.md)
-- [:jp: Japanese](./docs/ja/README.md)
-- [:kr: Korean](./docs/ko/README.md)
-- [:netherlands: Dutch](./docs/nl/README.md)
-- [:sweden: Swedish](./docs/sv/README.md)
-- [:cn: Simplified Chinese](./docs/zh/README.md)
+
 - [:cn: Traditional Chinese](./docs/zh-TW/README.md)
 
 ## Label mapping
@@ -32,6 +27,7 @@ Minimal clock with support for:
 ![Label mapping](labels.png)
 
 ## List of all available date formats
+
 | Format | Output           | Description                           |
 | ------ | ---------------- | ------------------------------------- |
 | `YY`   | 18               | Two-digit year                        |
@@ -61,9 +57,11 @@ Minimal clock with support for:
 | `a`    | am pm            |                                       |
 
 ## Other versions
-* [laggelos](https://github.com/laggelos/Minimal-Design/tree/minimal_design_edited)  
-    * New colors
-    * Show battery and heartrate at the same time 
+
+- [laggelos](https://github.com/laggelos/Minimal-Design/tree/minimal_design_edited)
+  - New colors
+  - Show battery and heartrate at the same time
 
 ## Credits
+
 Made with :heart: by [Nicolò Rebaioli](https://www.rebaioli.altervista.org)
