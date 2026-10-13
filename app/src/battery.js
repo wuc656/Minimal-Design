@@ -32,6 +32,7 @@ export default class Battery {
   }
 
   hide() {
+    battery.onchange = null;
     this.hideIcon();
     this.hideText();
   }
@@ -47,8 +48,8 @@ export default class Battery {
     batteryHandler.show();
     batteryHandler.refresh();
 
-    battery.onchange = function () {
+    battery.onchange = () => {
       batteryHandler.refresh();
-    }
+    };
   }
 }

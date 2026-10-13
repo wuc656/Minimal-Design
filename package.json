@@ -12,7 +12,9 @@
     ],
     "buildTargets": [
       "atlas",
-      "hera"
+      "vulcan",
+      "hera",
+      "rhea"
     ],
     "i18n": {
       "zh-tw": {
@@ -26,6 +28,6 @@
   },
   "dependencies": {
     "@fitbit/sdk": "^6.2.0-pre.1",
-    "@fitbit/sdk-cli": "^1.7.3"
+    "@fitbit/sdk-cli": "^1.8.0-pre.11"
   }
 }

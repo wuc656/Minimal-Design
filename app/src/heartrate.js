@@ -8,20 +8,20 @@ export default class HeartRate {
   static instance = new HeartRate();
 
   constructor() {
-    //this.hrm = new HeartRateSensor();
     this.hrm = new HeartRateSensor({ frequency: 0.5, batch: 2 });
-
     this.txtHeartRate = document.getElementById('heartrate');
     this.imgHeartRate = document.getElementById('heartrate-icon');
-
     this.txtHeartRate.text = "--";
+
+    this.hrm.onreading = () => {
+      this.txtHeartRate.text = this.hrm.readings.heartRate[0];
+    };
 
     if (BodyPresenceSensor) {
       this.body = new BodyPresenceSensor();
       this.body.onreading = () => {
         this.body.present ? this.hrm.start() : this.hrm.stop();
       };
-      this.body.start();
     }
   }
 
@@ -38,30 +38,24 @@ export default class HeartRate {
   start() {
     if (HeartRateSensor && appbit.permissions.granted("access_heart_rate")) {
       this.show();
-      //this.hrm.onreading = () => {
-      //this.txtHeartRate.text = this.hrm.heartRate;
-      //this.txtHeartRate.text = this.hrm.readings.heartRate[0];
-      //}
-      this.hrm.addEventListener("reading", () => {
-        this.txtHeartRate.text = this.hrm.readings.heartRate[0];
-      });
-      // Automatically stop the sensor when the screen is off to conserve battery
       display.onchange = () => {
         if (display.on) {
-          this.body.start();
-          this.hrm.start();
+          if (this.body) this.body.start();
+          if (!this.body || this.body.present) this.hrm.start();
         } else {
-          this.body.stop();
+          if (this.body) this.body.stop();
           this.hrm.stop();
         }
       };
+      if (this.body) this.body.start();
       this.hrm.start();
     }
   }
 
   stop() {
+    display.onchange = null;
     this.hrm.stop();
-    this.body.stop();
+    if (this.body) this.body.stop();
     this.hide();
   }
 }

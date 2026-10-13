@@ -12,6 +12,7 @@ export default class Charger {
     this.imgCharger.style.display = charger.powerIsGood ? "inline" : "none";
   }
   hide() {
+    charger.onchange = null;
     this.imgCharger.style.display = "none";
   }
   static run() {
@@ -19,8 +20,8 @@ export default class Charger {
 
     chargerHandler.refresh();
 
-    charger.onchange = function () {
+    charger.onchange = () => {
       chargerHandler.refresh();
-    }
+    };
   }
 }

@@ -16,6 +16,8 @@ export default class Clock {
 
   init(fileStore) {
     clock.granularity = "minutes";
+    // Render immediately on load
+    this.refresh(new Date(), fileStore);
     // Update the clock / date every tick
     clock.ontick = (evt) => {
       this.refresh(evt.date, fileStore);
