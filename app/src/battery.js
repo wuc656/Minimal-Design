@@ -10,9 +10,7 @@ export default class Battery {
   }
 
   refresh() {
-    //let batteryChargeLevel = Math.floor(battery.chargeLevel);
-    //this.txtBattery.text = batteryChargeLevel;
-    this.txtBattery.text = battery.chargeLevel;
+    this.txtBattery.text = Math.floor(battery.chargeLevel);
   }
 
   hideIcon() {

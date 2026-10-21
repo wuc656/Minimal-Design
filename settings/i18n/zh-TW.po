@@ -2,7 +2,7 @@ msgid "color"
 msgstr "顏色"
 
 msgid "visualization"
-msgstr "可視化"
+msgstr "畫面顯示"
 
 msgid "displayelementflaglabel"
 msgstr "在頂部顯示元素"
@@ -20,19 +20,19 @@ msgid "formats"
 msgstr "格式"
 
 msgid "formatsLabel"
-msgstr "請參閱這裡以取得日期可用格式"
+msgstr "查看所有支援的日期格式代碼"
 
 msgid "formatsLink"
-msgstr "https://github.com/Samurai016/Minimal-Design/tree/master/docs/zh-TW"
+msgstr "https://github.com/wuc656/Minimal-Design/tree/master/docs/zh-TW"
 
 msgid "imageLink"
-msgstr "https://raw.githubusercontent.com/Samurai016/Minimal-Design/master/docs/zh-TW/labels.png"
+msgstr "https://raw.githubusercontent.com/wuc656/Minimal-Design/master/docs/zh-TW/labels.png"
 
 msgid "imageLabel"
-msgstr "請參閱這裡以進行監看標籤對映"
+msgstr "查看錶面標籤位置對照圖"
 
 msgid "weekdayformat"
-msgstr "格式 1"
+msgstr "格式 1（星期）"
 
 msgid "dateformat"
-msgstr "格式 2"
+msgstr "格式 2（日期）"

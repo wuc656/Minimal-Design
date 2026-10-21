@@ -28,15 +28,12 @@ export default class UI {
   restore() {
     const color = this.fileStore.getValue(KEY_COLOR);
     this.updateColor(color);
-    this.setState(KEY_DISPLAY_ELEMENT, this.fileStore.getValue(KEY_DISPLAY_ELEMENT) || DISPLAY_ELEMENT_BATTERY);
-    this.setState(KEY_DISPLAY_ELEMENT_FLAG, this.fileStore.getValue(KEY_DISPLAY_ELEMENT_FLAG) || true);
+    const flag = this.fileStore.getValue(KEY_DISPLAY_ELEMENT_FLAG);
+    this.setState(KEY_DISPLAY_ELEMENT_FLAG, flag);
   }
 
-  setState(key, data, save) {
+  setState(key, data) {
     if (key == KEY_DISPLAY_ELEMENT_FLAG) {
-      if (save) {
-        this.fileStore.setValue(KEY_DISPLAY_ELEMENT_FLAG, data);
-      }
       if (data == false) {
         Battery.instance.hide();
         Charger.instance.hide();
@@ -46,12 +43,11 @@ export default class UI {
       }
     } else {
       try {
-        data = data.values[0].value;
+        if (data && data.values && data.values[0] && data.values[0].value !== undefined) {
+          data = data.values[0].value;
+        }
       } catch (e) { }
 
-      if (save) {
-        this.fileStore.setValue(KEY_DISPLAY_ELEMENT, { "values": [{ "value": data }] });
-      }
       if (this.fileStore.getValue(KEY_DISPLAY_ELEMENT_FLAG) == true) {
         switch (data) {
           case DISPLAY_ELEMENT_HEART:

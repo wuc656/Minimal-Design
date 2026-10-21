@@ -59,8 +59,8 @@ const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "
   _getShortMonth = e => MONTHS[e.getMonth()], _getFullMonth = e => _getShortMonth(e) + "F",
   _getMinWeekday = e => WEEKDAYS[e.getDay()], _getShortWeekday = e => _getMinWeekday(e) + "S",
   _getFullWeekday = e => _getMinWeekday(e) + "F",
-  _getMinHours = e => e.getHours() <= 12 ? e.getHours() : e.getHours() - 12,
-  _getAMPM = e => e.getHours() <= 12 ? "AM" : "PM"; var _getTimezone = (date, withSeparator) => {
+  _getMinHours = e => (e.getHours() % 12 || 12).toString(),
+  _getAMPM = e => e.getHours() < 12 ? "AM" : "PM"; var _getTimezone = (date, withSeparator) => {
     var timezone = date.getTimezoneOffset();
     var sign = timezone < 0 ? "-" : "+";
     var separator = withSeparator ? ":" : "";
@@ -69,8 +69,9 @@ const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "
     return `${sign}${zeroPad(hours)}${separator}${zeroPad(minutes)}`;
   };
 const datefeather = (e, t) => {
+  if (typeof t !== "string") return "";
   const g = {
-    YY: e.getFullYear().toString().slice(-2), YYYY: e.getFullYear(), M: e.getMonth() + 1,
+    YY: e.getFullYear().toString().slice(-2), YYYY: e.getFullYear().toString(), M: (e.getMonth() + 1).toString(),
     MM: zeroPad(e.getMonth() + 1),
     MMM: gettext(_getShortMonth(e)),
     MMMM: gettext(_getFullMonth(e)),
@@ -93,7 +94,7 @@ const datefeather = (e, t) => {
     Z: _getTimezone(e, !0),
     ZZ: _getTimezone(e)
   };
-  return t.replace(REGEX_FORMAT, (e, o) => o || g[e] || t.replace(":", ""))
+  return t.replace(REGEX_FORMAT, (match, escaped) => escaped || (g[match] !== undefined ? g[match] : match));
 };
 //export const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
-const format = (date, format) => datefeather(date, format);
+const format = (date, formatStr) => (typeof formatStr === "string" ? datefeather(date, formatStr) : "");

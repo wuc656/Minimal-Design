@@ -33,7 +33,11 @@ export default class Messaging {
       let data = evt.data.newValue;
       try {
         data = JSON.parse(evt.data.newValue);
-        data = data.name ? data.name : data;
+        if (data && data.name !== undefined) {
+          data = data.name;
+        } else if (data && data.values && data.values[0] && data.values[0].value !== undefined) {
+          data = data.values[0].value;
+        }
       } catch (e) { }
 
       fileStore.setValue(evt.data.key, data);
@@ -44,11 +48,11 @@ export default class Messaging {
           break;
         }
         case KEY_DISPLAY_ELEMENT_FLAG: {
-          ui.setState(KEY_DISPLAY_ELEMENT_FLAG, data, true);
+          ui.setState(KEY_DISPLAY_ELEMENT_FLAG, data);
           break;
         }
         case KEY_DISPLAY_ELEMENT: {
-          ui.setState(KEY_DISPLAY_ELEMENT, data, true);
+          ui.setState(KEY_DISPLAY_ELEMENT, data);
           break;
         }
         case KEY_WEEKDAY_FORMAT:

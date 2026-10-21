@@ -12,7 +12,7 @@ export default class FileStore {
       this.model = readFileSync(FILENAME, FILETYPE);
     } catch (e) {
       //console.error("FileStore encountered error on load, using default state.",e);
-      this.model = DEFAULT_MODEL;
+      this.model = Object.assign({}, DEFAULT_MODEL);
       this.saveModel();
     }
   }

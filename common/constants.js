@@ -10,7 +10,7 @@ export const DEFAULT_MODEL = {
   [KEY_DISPLAY_ELEMENT]: DISPLAY_ELEMENT_BATTERY,
   [KEY_DISPLAY_ELEMENT_FLAG]: true,
   [KEY_WEEKDAY_FORMAT]: "dddd",
-  [KEY_DATE_FORMAT]: "MMMM DD ",
+  [KEY_DATE_FORMAT]: "MMMM DD",
 };
 // Note: don't reorder these as settings are saved based on array index.
 // If this is needed you should migrate or at least rotate the settings key.

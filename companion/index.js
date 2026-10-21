@@ -22,6 +22,11 @@ settingsStorage.onchange = evt => {
 };
 // Restore any previously saved settings and send to the device
 function restoreSettings() {
+  Object.keys(DEFAULT_MODEL).forEach(function(key) {
+    if (!settingsStorage.getItem(key)) {
+      settingsStorage.setItem(key, formatDefaultValue(key));
+    }
+  });
   for (let index = 0; index < settingsStorage.length; index++) {
     let key = settingsStorage.key(index);
     if (key) {
@@ -32,11 +37,6 @@ function restoreSettings() {
       sendVal(data);
     }
   }
-  Object.keys(DEFAULT_MODEL).forEach(function(key) {
-    if (!settingsStorage.getItem(key)) {
-     settingsStorage.setItem(key, formatDefaultValue(key)); 
-    }
-  });  
 }
 // Send data to device using Messaging API
 function sendVal(data) {
@@ -47,11 +47,11 @@ function sendVal(data) {
 function formatDefaultValue(key) {
   switch (key) {
     case KEY_DISPLAY_ELEMENT:
-      return JSON.stringify({"values":{"value":DEFAULT_MODEL[key]},"selected":[0]});
+      return JSON.stringify({ "values": [{ "value": DEFAULT_MODEL[key] }], "selected": [0] });
     case KEY_WEEKDAY_FORMAT: 
     case KEY_DATE_FORMAT: 
-      return JSON.stringify({"name":DEFAULT_MODEL[key]});
+      return JSON.stringify({ "name": DEFAULT_MODEL[key] });
     default:
-      return DEFAULT_MODEL[key];
+      return JSON.stringify(DEFAULT_MODEL[key]);
   }
 }

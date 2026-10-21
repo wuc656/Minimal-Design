@@ -23,10 +23,10 @@ msgid "formatsLabel"
 msgstr "See here for date available formats"
 
 msgid "formatsLink"
-msgstr "https://github.com/Samurai016/Minimal-Design/blob/master/README.md#label-mapping"
+msgstr "https://github.com/wuc656/Minimal-Design/blob/master/README.md#label-mapping"
 
 msgid "imageLink"
-msgstr "https://raw.githubusercontent.com/Samurai016/Minimal-Design/master/labels.png"
+msgstr "https://raw.githubusercontent.com/wuc656/Minimal-Design/master/labels.png"
 
 msgid "imageLabel"
 msgstr "See here for watchface labels mapping"

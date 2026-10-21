@@ -13,7 +13,7 @@ Minimal clock with support for:
 - 3 different color configurations
 - Battery percentage (optional)
 - Heart rate (optional)
-- 充電狀態顯示(開發中)
+- Charging indicator
 
 ## Translated documentation
 

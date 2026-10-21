@@ -14,13 +14,19 @@ export default class HeartRate {
     this.txtHeartRate.text = "--";
 
     this.hrm.onreading = () => {
-      this.txtHeartRate.text = this.hrm.readings.heartRate[0];
+      const hr = this.hrm.readings.heartRate[0];
+      this.txtHeartRate.text = (hr !== undefined && hr !== null) ? hr : "--";
     };
 
     if (BodyPresenceSensor) {
       this.body = new BodyPresenceSensor();
       this.body.onreading = () => {
-        this.body.present ? this.hrm.start() : this.hrm.stop();
+        if (this.body.present) {
+          this.hrm.start();
+        } else {
+          this.hrm.stop();
+          this.txtHeartRate.text = "--";
+        }
       };
     }
   }
@@ -48,7 +54,7 @@ export default class HeartRate {
         }
       };
       if (this.body) this.body.start();
-      this.hrm.start();
+      if (!this.body || this.body.present) this.hrm.start();
     }
   }
 
